@@ -112,3 +112,6 @@ class Contract:
 
     def __hash__(self):
         return hash(f"{str(self.assumptions)} -> {str(self.guarantees)}")
+
+    def __repr__(self):
+        return f"{str(self.assumptions)} -> {str(self.guarantees)}"
