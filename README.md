@@ -31,6 +31,24 @@ Install the other dependencies with poetry (optional):
 poetry install
 ```
 
+
+
+## Dependencies
+
+Clone crome-logic from git in the same folder where crome-web is located
+
+```bash
+git clone https://github.com/pierg/crome-logic.git
+```
+
+Append it to PYTHONPATH
+
+```bash
+export PYTHONPATH=$PYTHONPATH:../crome-logic/
+```
+
+
+
 ## Docker
 
 You can directly run the project by running the docker image on any platform
