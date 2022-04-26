@@ -9,7 +9,7 @@
       content="Docutils 0.17.1: http://docutils.sourceforge.net/"
     />
 
-    <title>crome-contracts &#8212; crome-contracts 0.1.0 documentation</title>
+    <title>crome-logic &#8212; crome-logic 0.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script
@@ -22,7 +22,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Version history" href="pages/changelog.html" />
+    <link rel="next" title="&lt;no title&gt;" href="pages/changelog.html" />
 
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
@@ -36,43 +36,15 @@
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
-            <section id="crome-contracts">
+            <section id="crome-logic">
               <h1>
-                crome-contracts<a
+                crome-logic<a
                   class="headerlink"
-                  href="#crome-contracts"
+                  href="#crome-logic"
                   title="Permalink to this headline"
                   >¶</a
                 >
               </h1>
-              <a
-                class="reference external image-reference"
-                href="https://github.com/piergiuseppe/crome-contracts/actions?query=workflow%3Atest"
-                ><img
-                  alt="Build Status"
-                  src="https://github.com/piergiuseppe/crome-contracts/workflows/test/badge.svg?branch=master&amp;event=push"
-              /></a>
-              <a
-                class="reference external image-reference"
-                href="https://codecov.io/gh/piergiuseppe/crome-contracts"
-                ><img
-                  alt="codecov"
-                  src="https://codecov.io/gh/piergiuseppe/crome-contracts/branch/master/graph/badge.svg"
-              /></a>
-              <a
-                class="reference external image-reference"
-                href="https://pypi.org/project/crome-contracts/"
-                ><img
-                  alt="Python Version"
-                  src="https://img.shields.io/pypi/pyversions/crome-contracts.svg"
-              /></a>
-              <a
-                class="reference external image-reference"
-                href="https://github.com/wemake-services/wemake-python-styleguide"
-                ><img
-                  alt="wemake-python-styleguide"
-                  src="https://img.shields.io/badge/style-wemake-000000.svg"
-              /></a>
               <p>LTL and Boolean formulas manipulation</p>
               <section id="features">
                 <h2>
@@ -89,12 +61,11 @@
                       Fully typed with annotations and checked with mypy,
                       <a
                         class="reference external"
-                        href="https://www.python.org/dev/peps/pep-0561/"
+                        href="https://www.python.org/dev/peps/pep-0o561/"
                         >PEP561 compatible</a
                       >
                     </p>
                   </li>
-                  <li><p>Add yours!</p></li>
                 </ul>
               </section>
               <section id="installation">
@@ -106,9 +77,42 @@
                     >¶</a
                   >
                 </h2>
+                <p>
+                  We use
+                  <a
+                    class="reference external"
+                    href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html"
+                    >conda</a
+                  >
+                  to manage the environment and some dependencies.
+                </p>
+                <p>
+                  We use
+                  <a
+                    class="reference external"
+                    href="https://github.com/python-poetry/poetry"
+                    >poetry</a
+                  >
+                  to manage the dependencies.
+                </p>
+                <p>Create the environment using conda:</p>
                 <div class="highlight-bash notranslate">
                   <div class="highlight">
-                    <pre><span></span>pip install crome-contracts
+                    <pre><span></span>conda env create -f environment.yml
+</pre>
+                  </div>
+                </div>
+                <p>Activate the conda environment</p>
+                <div class="highlight-bash notranslate">
+                  <div class="highlight">
+                    <pre><span></span>conda activate crome-logic
+</pre>
+                  </div>
+                </div>
+                <p>Install the dependencies with poetry:</p>
+                <div class="highlight-bash notranslate">
+                  <div class="highlight">
+                    <pre><span></span>poetry install
 </pre>
                   </div>
                 </div>
@@ -122,16 +126,38 @@
                     >¶</a
                   >
                 </h2>
-                <p>Showcase how your project can be used:</p>
-                <div class="highlight-python notranslate">
-                  <div class="highlight">
-                    <pre><span></span><span class="kn">from</span> <span class="nn">crome_contracts.example</span> <span class="kn">import</span> <span class="n">some_function</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">some_function</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="c1"># =&gt; 7</span>
-</pre>
-                  </div>
-                </div>
+                <p>TODO..</p>
+              </section>
+              <section id="one-magic-command">
+                <h2>
+                  One magic command<a
+                    class="headerlink"
+                    href="#one-magic-command"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h2>
+                <p>
+                  Run
+                  <code class="docutils literal notranslate"
+                    ><span class="pre">make</span> <span class="pre">lint</span></code
+                  >
+                  to run all the typing, linting and formatting tools
+                </p>
+                <p>
+                  Run
+                  <code class="docutils literal notranslate"
+                    ><span class="pre">make</span> <span class="pre">test</span></code
+                  >
+                  to run everything we have!
+                </p>
+                <p>
+                  run
+                  <code class="docutils literal notranslate"
+                    ><span class="pre">run-pre-commit.sh</span></code
+                  >
+                  to run all the pre-commit scripts
+                </p>
               </section>
               <section id="license">
                 <h2>
@@ -145,20 +171,32 @@
                 <p>
                   <a
                     class="reference external"
-                    href="https://github.com/piergiuseppe/crome-contracts/blob/master/LICENSE"
+                    href="https://github.com/piergiuseppe/crome-synthesis/blob/master/LICENSE"
                     >MIT</a
                   >
                 </p>
               </section>
-              <section id="credits">
+              <section id="features-and-credits">
                 <h2>
-                  Credits<a
+                  Features and Credits<a
                     class="headerlink"
-                    href="#credits"
+                    href="#features-and-credits"
                     title="Permalink to this headline"
                     >¶</a
                   >
                 </h2>
+                <ul class="simple">
+                  <li>
+                    <p>
+                      Fully typed with annotations and checked with mypy,
+                      <a
+                        class="reference external"
+                        href="https://www.python.org/dev/peps/pep-0o561/"
+                        >PEP561 compatible</a
+                      >
+                    </p>
+                  </li>
+                </ul>
                 <p>
                   This project was generated with
                   <cite>``wemake-python-package`</cite> &lt;<a
@@ -168,12 +206,12 @@
                   >&gt;`_. Current template version is:
                   <a
                     class="reference external"
-                    href="https://github.com/wemake-services/wemake-python-package/tree/044a407ad9bad5159ea68442d0442f79ab7d2f7f"
-                    >044a407ad9bad5159ea68442d0442f79ab7d2f7f</a
+                    href="https://github.com/wemake-services/wemake-python-package/tree/0o44a407ad9bad5159ea68442d0442f79ab7d2f7f"
+                    >0o44a407ad9bad5159ea68442d0442f79ab7d2f7f</a
                   >. See what is
                   <a
                     class="reference external"
-                    href="https://github.com/wemake-services/wemake-python-package/compare/044a407ad9bad5159ea68442d0442f79ab7d2f7f...master"
+                    href="https://github.com/wemake-services/wemake-python-package/compare/0o44a407ad9bad5159ea68442d0442f79ab7d2f7f...master"
                     >updated</a
                   >
                   since then.
@@ -188,18 +226,7 @@
                     >¶</a
                   >
                 </h2>
-                <div class="toctree-wrapper compound">
-                  <p class="caption" role="heading">
-                    <span class="caption-text">Changelog</span>
-                  </p>
-                  <ul>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="pages/changelog.html"
-                        >Version history</a
-                      >
-                    </li>
-                  </ul>
-                </div>
+                <div class="toctree-wrapper compound"></div>
               </section>
               <section id="indices-and-tables">
                 <h2>
@@ -240,18 +267,18 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-          <h1 class="logo"><a href="#">crome-contracts</a></h1>
+          <h1 class="logo"><a href="#">crome-logic</a></h1>
 
           <ul>
             <li>
               <!-- Place this tag where you want the button to render. -->
               <a
                 class="github-button"
-                href="https://github.com/piergiuseppe/crome-contracts"
+                href="https://github.com/piergiuseppe/crome-logic"
                 data-icon="octicon-star"
                 data-size="large"
                 data-show-count="true"
-                aria-label="Star piergiuseppe/crome-contracts on GitHub"
+                aria-label="Star piergiuseppe/crome-logic on GitHub"
                 >Star</a
               >
             </li>
@@ -259,11 +286,11 @@
               <!-- Place this tag where you want the button to render. -->
               <a
                 class="github-button"
-                href="https://github.com/piergiuseppe/crome-contracts/issues"
+                href="https://github.com/piergiuseppe/crome-logic/issues"
                 data-icon="octicon-issue-opened"
                 data-size="large"
                 data-show-count="true"
-                aria-label="Issue piergiuseppe/crome-contracts on GitHub"
+                aria-label="Issue piergiuseppe/crome-logic on GitHub"
                 >Issue</a
               >
             </li>
@@ -271,38 +298,28 @@
 
           <script async defer src="https://buttons.github.io/buttons.js"></script>
           <h3>Navigation</h3>
-          <p class="caption" role="heading">
-            <span class="caption-text">Changelog</span>
-          </p>
-          <ul>
-            <li class="toctree-l1">
-              <a class="reference internal" href="pages/changelog.html"
-                >Version history</a
-              >
-            </li>
-          </ul>
 
           <h3>Links</h3>
           <ul>
             <li>
-              <a href="https://github.com/piergiuseppe/crome-contracts">GitHub</a>
+              <a href="https://github.com/piergiuseppe/crome-logic">GitHub</a>
             </li>
             <li>
-              <a href="https://pypi.python.org/pypi/crome-contracts">PyPI</a>
+              <a href="https://pypi.python.org/pypi/crome-logic">PyPI</a>
             </li>
             <li>
-              <a href="https://travis-ci.com/piergiuseppe/crome-contracts">Travis CI</a>
+              <a href="https://travis-ci.com/piergiuseppe/crome-logic">Travis CI</a>
             </li>
             <li>
               <a
-                href="https://coveralls.io/github/piergiuseppe/crome-contracts?branch=master"
+                href="https://coveralls.io/github/piergiuseppe/crome-logic?branch=master"
                 >Coverage</a
               >
             </li>
           </ul>
           <!-- GitHub Logo -->
           <a
-            href="https://github.com/piergiuseppe/crome-contracts"
+            href="https://github.com/piergiuseppe/crome-logic"
             class="github-corner"
             aria-label="View source on GitHub"
           >

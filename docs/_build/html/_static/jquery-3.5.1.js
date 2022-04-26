@@ -5660,7 +5660,7 @@
       return;
     }
 
-    // Register the contract as a special universal handler for all event namespaces
+    // Register the controller as a special universal handler for all event namespaces
     dataPriv.set(el, type, false);
     jQuery.event.add(el, type, {
       namespace: false,
