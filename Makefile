@@ -34,6 +34,10 @@ package:
 	poetry run pip check
 	poetry run safety check --full-report
 
+.PHONY: test
+test: lint package unit
+
+
 #* Cleaning
 .PHONY: pycache-remove
 pycache-remove:
@@ -62,7 +66,3 @@ build-remove:
 
 .PHONY: cleanup
 cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove
-
-.PHONY: test
-test: lint package unit
-
