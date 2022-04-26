@@ -82,7 +82,7 @@ class Contract:
         return self._generated_op, self._generators
 
     def __str__(self):
-        ret = "\n--ASSUMPTIONS--\n"
+        ret = "--ASSUMPTIONS--\n"
         ret += str(self.assumptions)
         ret += "\n--GUARANTEES--\n"
         ret += str(self.guarantees)

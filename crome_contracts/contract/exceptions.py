@@ -2,11 +2,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from crome_contracts.contract import Contract
+
 
 @dataclass
 class ContractException(Exception):
-    message: str
+    contracts: set[Contract]
 
     def __post_init__(self):
-        header = "*** CONTRACT EXCEPTION ***"
-        print(f"{header}\n{self.message}")
+        contracts_str = '\n\n'.join(repr(c) for c in self.contracts)
+        print("*** ContractException EXCEPTION ***\n"
+              f"A failure has occurred on contracts:\n {contracts_str}")
