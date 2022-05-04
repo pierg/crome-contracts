@@ -22,5 +22,5 @@ def quotient(dividend: Contract, divisor: Contract) -> Contract:
         guarantees=g2,
         assumptions=a2,
         generated_by=ContractOperation.QUOTIENT,
-        generators={"dividend": dividend, "divisor": divisor}
+        generators={"dividend": dividend, "divisor": divisor},
     )

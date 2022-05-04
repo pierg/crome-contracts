@@ -49,11 +49,11 @@ repos:
         name: docformatter
         entry: docformatter
         language: python
-      - id: pyupgrade
-        name: pyupgrade
-        entry: pyupgrade
-        language: python
-        exclude: ^docs/
+      #      - id: pyupgrade
+      #        name: pyupgrade
+      #        entry: pyupgrade
+      #        language: python
+      #        exclude: ^docs/
       - id: autoflake
         name: autoflake
         entry: autoflake

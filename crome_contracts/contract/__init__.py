@@ -1,18 +1,18 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import dataclass, field
 from enum import Enum, auto
 
 from crome_logic.specification.temporal import LTL
-from crome_logic.specification.temporal.conflicts_manager import find_inconsistencies
 from crome_logic.typeset import Typeset
-from dataclasses import dataclass, field
 
 from crome_contracts.contract.conflicts_manager import find_inconsistencies_operation
 
 
 class ContractOperation(Enum):
     """Contract can be the result of the following operations"""
+
     COMPOSITION = auto()
     CONJUNCTION = auto()
     MERGING = auto()
@@ -28,8 +28,12 @@ class Contract:
     _assumptions: LTL = LTL("TRUE")
     _unsaturated: bool = field(repr=False, default=True)
 
-    _generated_by: ContractOperation = field(init=False, repr=False, default=ContractOperation.DESIGNER)
-    _generators: set[Contract] | dict[str, Contract] | None = field(init=False, repr=False, default=None)
+    _generated_by: ContractOperation = field(
+        init=False, repr=False, default=ContractOperation.DESIGNER
+    )
+    _generators: set[Contract] | dict[str, Contract] | None = field(
+        init=False, repr=False, default=None
+    )
     _saturation: LTL | None = field(init=False, repr=False, default=None)
 
     def __post_init__(self):
@@ -41,12 +45,16 @@ class Contract:
             find_inconsistencies_operation(self)
 
     @classmethod
-    def from_operation(cls,
-                       guarantees: LTL,
-                       assumptions: LTL,
-                       generated_by: ContractOperation,
-                       generators: set[Contract] | dict[str, Contract]) -> Contract:
-        new_contract = cls(_guarantees=guarantees, _assumptions=assumptions, _unsaturated=False)
+    def from_operation(
+        cls,
+        guarantees: LTL,
+        assumptions: LTL,
+        generated_by: ContractOperation,
+        generators: set[Contract] | dict[str, Contract],
+    ) -> Contract:
+        new_contract = cls(
+            _guarantees=guarantees, _assumptions=assumptions, _unsaturated=False
+        )
         object.__setattr__(new_contract, "_generated_by", generated_by)
         object.__setattr__(new_contract, "_generators", generators)
 
@@ -75,7 +83,7 @@ class Contract:
 
     @property
     def generators(
-            self,
+        self,
     ) -> tuple[ContractOperation, set[Contract] | dict[str, Contract] | None]:
         return self._generated_by, self._generators
 
