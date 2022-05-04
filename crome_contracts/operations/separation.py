@@ -1,4 +1,4 @@
-from crome_contracts.contract import Contract
+from crome_contracts.contract import Contract, ContractOperation
 
 
 def separation(dividend: Contract, divisor: Contract) -> Contract:
@@ -18,10 +18,9 @@ def separation(dividend: Contract, divisor: Contract) -> Contract:
     a2 = a & g1 | ~(g & a1)
     g2 = g & a1
 
-    return Contract(
+    return Contract.from_operation(
         guarantees=g2,
         assumptions=a2,
-        unsaturated=False,
-        generated_from=Contract.Operation.SEPARATION,
+        generated_by=ContractOperation.SEPARATION,
         generators={"dividend": dividend, "divisor": divisor},
     )

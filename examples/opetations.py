@@ -14,11 +14,11 @@ def example() -> None:
     print(a)
     print(g)
 
-    c1 = Contract(assumptions=a, guarantees=g)
+    c1 = Contract(_assumptions=a, _guarantees=g)
 
     print(c1)
 
-    c2 = Contract(assumptions=LTL("G(F(a1))"), guarantees=LTL("G(a1 <-> (b1 | c1))"))
+    c2 = Contract(_assumptions=LTL("G(F(a1))"), _guarantees=LTL("G(a1 <-> (b1 | c1))"))
 
     print(c2)
 

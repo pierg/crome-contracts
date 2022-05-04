@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from crome_contracts.contract import Contract
+from crome_contracts.contract import Contract, ContractOperation
 
 
 def merging(contracts: set[Contract]) -> Contract:
@@ -19,10 +19,9 @@ def merging(contracts: set[Contract]) -> Contract:
 
     new_guarantees = new_guarantees | ~new_assumptions
 
-    return Contract(
+    return Contract.from_operation(
         guarantees=new_guarantees,
         assumptions=new_assumptions,
-        unsaturated=False,
-        generated_from=Contract.Operation.MERGING,
+        generated_by=ContractOperation.MERGING,
         generators=contracts,
     )

@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from crome_contracts.contract import Contract
+from crome_contracts.contract import Contract, ContractOperation
 
 
 def conjunction(contracts: set[Contract]) -> Contract:
@@ -17,10 +17,9 @@ def conjunction(contracts: set[Contract]) -> Contract:
         new_assumptions |= contract.assumptions
         new_guarantees &= contract.guarantees
 
-    return Contract(
+    return Contract.from_operation(
         guarantees=new_guarantees,
         assumptions=new_assumptions,
-        unsaturated=False,
-        generated_from=Contract.Operation.CONJUNCTION,
+        generated_by=ContractOperation.CONJUNCTION,
         generators=contracts,
     )

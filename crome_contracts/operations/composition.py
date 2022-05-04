@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from crome_contracts.contract import Contract
+from crome_contracts.contract import Contract, ContractOperation
 
 
 def composition(contracts: set[Contract]) -> Contract:
@@ -19,10 +19,9 @@ def composition(contracts: set[Contract]) -> Contract:
 
     new_assumptions |= ~new_guarantees
 
-    return Contract(
+    return Contract.from_operation(
         guarantees=new_guarantees,
         assumptions=new_assumptions,
-        unsaturated=False,
-        generated_from=Contract.Operation.COMPOSITION,
+        generated_by=ContractOperation.COMPOSITION,
         generators=contracts,
     )

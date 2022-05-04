@@ -6,57 +6,55 @@ from enum import Enum, auto
 from crome_logic.specification.temporal import LTL
 from crome_logic.specification.temporal.conflicts_manager import find_inconsistencies
 from crome_logic.typeset import Typeset
+from dataclasses import dataclass, field
 
 from crome_contracts.contract.conflicts_manager import find_inconsistencies_operation
 
 
+class ContractOperation(Enum):
+    """Contract can be the result of the following operations"""
+    COMPOSITION = auto()
+    CONJUNCTION = auto()
+    MERGING = auto()
+    QUOTIENT = auto()
+    SEPARATION = auto()
+    REFINEMENT = auto()
+    DESIGNER = auto()
+
+
+@dataclass(frozen=True)
 class Contract:
-    class Operation(Enum):
-        """Contract can be the result of the following operations"""
+    _guarantees: LTL
+    _assumptions: LTL = LTL("TRUE")
+    _unsaturated: bool = field(repr=False, default=True)
 
-        COMPOSITION = auto()
-        CONJUNCTION = auto()
-        MERGING = auto()
-        QUOTIENT = auto()
-        SEPARATION = auto()
-        REFINEMENT = auto()
-        DESIGNER = auto()
+    _generated_by: ContractOperation = field(init=False, repr=False, default=ContractOperation.DESIGNER)
+    _generators: set[Contract] | dict[str, Contract] | None = field(init=False, repr=False, default=None)
+    _saturation: LTL | None = field(init=False, repr=False, default=None)
 
-    def __init__(
-        self,
-        guarantees: LTL,
-        assumptions: LTL = LTL("TRUE"),
-        unsaturated: bool = True,
-        generated_from: Operation = Operation.DESIGNER,
-        generators: set[Contract] | dict[str, Contract] | None = None,
-    ):
-
-        self._assumptions: LTL = deepcopy(assumptions)
-        if unsaturated:
-            self._saturation: LTL = deepcopy(assumptions)
-        else:
-            self._saturation = None
-        self._guarantees: LTL = deepcopy(guarantees)
-
-        self._generated_op: Contract.Operation = generated_from
-        self._generators: set[Contract] | dict[str, Contract] | None = generators
+    def __post_init__(self):
+        if self._unsaturated:
+            object.__setattr__(self, "_saturation", deepcopy(self._assumptions))
 
         """Check Feasibility"""
         if not (self._assumptions & self._guarantees).is_satisfiable:
             find_inconsistencies_operation(self)
 
+    @classmethod
+    def from_operation(cls,
+                       guarantees: LTL,
+                       assumptions: LTL,
+                       generated_by: ContractOperation,
+                       generators: set[Contract] | dict[str, Contract]) -> Contract:
+        new_contract = cls(_guarantees=guarantees, _assumptions=assumptions, _unsaturated=False)
+        object.__setattr__(new_contract, "_generated_by", generated_by)
+        object.__setattr__(new_contract, "_generators", generators)
+
+        return new_contract
+
     @property
     def assumptions(self) -> LTL:
         return self._assumptions
-
-    @assumptions.setter
-    def assumptions(self, value: LTL):
-        """Check Feasibility"""
-        if value >= self._assumptions:
-            self._assumptions = deepcopy(value)
-            return
-        if not (value & self._guarantees).is_satisfiable:
-            find_inconsistencies({value, self._guarantees})
 
     @property
     def guarantees(self) -> LTL:
@@ -77,9 +75,9 @@ class Contract:
 
     @property
     def generators(
-        self,
-    ) -> tuple[Contract.Operation, set[Contract] | dict[str, Contract] | None]:
-        return self._generated_op, self._generators
+            self,
+    ) -> tuple[ContractOperation, set[Contract] | dict[str, Contract] | None]:
+        return self._generated_by, self._generators
 
     def __str__(self):
         ret = "--ASSUMPTIONS--\n"
