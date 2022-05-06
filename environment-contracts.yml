@@ -1,0 +1,6 @@
+name: crome-contracts
+
+channels:
+  - default
+  - conda-forge
+

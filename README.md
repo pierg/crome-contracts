@@ -4,33 +4,6 @@ Contract Algebra Implementation with behaviours expressed in LTL
 
 [Contract for System Design](https://hal.inria.fr/hal-0o0757488/file/RR-8147.pdf)
 
-## Installation
-
-We use
-[conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to
-manage the environment and dependencies.
-
-We use [poetry](https://github.com/python-poetry/poetry) to manage 'development'
-dependencies (e.g. linting, type checking).
-
-Create the environment using conda:
-
-```bash
-conda env create -f environment.yml
-```
-
-Activate the conda environment
-
-```bash
-conda activate crome-logic
-```
-
-Install the other dependencies with poetry (optional):
-
-```bash
-poetry install
-```
-
 ## Dependencies
 
 Clone crome-logic from git in the same folder where crome-web is located
@@ -44,6 +17,36 @@ Append it to PYTHONPATH
 ```bash
 export PYTHONPATH=$PYTHONPATH:../crome-logic/
 ```
+
+
+## Installation
+
+We use
+[conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to
+manage the environment and dependencies.
+
+We use [poetry](https://github.com/python-poetry/poetry) to manage 'development'
+dependencies (e.g. linting, type checking).
+
+
+You need to install `conda-merge` so that we can merge all the dependecies from the other repositories and create the `environment.yml`
+```bash
+pip install conda-merge
+```
+
+Once `conda-merge` is installed, you can create the `envioronment.yml` file, create the environment and activate it by runnin the following commands:
+```bash
+make conda-create
+make conda-install
+make conda-activate
+```
+
+Install the other dependencies with poetry (optional):
+
+```bash
+poetry install
+```
+
 
 ## Docker
 
