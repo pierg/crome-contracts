@@ -7,6 +7,8 @@ def quotient(dividend: Contract, divisor: Contract) -> Contract:
     if divisor is None:
         raise Exception("No divisor specified in the quotient")
 
+    # concretization({dividend, divisor})
+
     c = dividend
     a = c.assumptions
     g = c.guarantees

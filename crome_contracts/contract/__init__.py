@@ -10,6 +10,8 @@ from crome_logic.typeset import Typeset
 from crome_contracts.contract.conflicts_manager import find_inconsistencies_operation
 
 
+
+
 class ContractOperation(Enum):
     """Contract can be the result of the following operations"""
 
@@ -37,7 +39,7 @@ class Contract:
     _saturation: LTL | None = field(init=False, repr=False, default=None)
 
     def __post_init__(self):
-        if self._unsaturated:
+        if self._unsaturated and not self.assumptions.is_valid:
             object.__setattr__(self, "_saturation", deepcopy(self._assumptions))
 
         """Check Feasibility"""
@@ -88,11 +90,14 @@ class Contract:
         return self._generated_by, self._generators
 
     def __str__(self):
-        ret = "--ASSUMPTIONS--\n"
-        ret += str(self.assumptions)
-        ret += "\n--GUARANTEES--\n"
-        ret += str(self.guarantees)
-        return ret
+        res: list[str] = []
+        if not self.assumptions.is_true_expression:
+            res.append("ASSUMPTIONS")
+            res.append(f"\t{str(self.assumptions)}")
+        if not self.guarantees.is_true_expression:
+            res.append("GUARANTEES")
+            res.append(f"\t{str(self.guarantees)}")
+        return "\n".join(res)
 
     """Refinement"""
 
