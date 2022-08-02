@@ -4,3 +4,6 @@ channels:
   - default
   - conda-forge
 
+dependencies:
+  - pdm
+  - pre-commit
