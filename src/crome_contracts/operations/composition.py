@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from crome_contracts.contract import Contract, ContractOperation
+from src.crome_contracts.contract import Contract, ContractOperation
 
 
 def composition(contracts: set[Contract]) -> Contract:

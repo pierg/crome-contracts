@@ -1,11 +1,11 @@
-from crome_logic.specification.temporal import LTL
+from src.crome_logic.specification.temporal import LTL
 
-from crome_contracts.contract import Contract
-from crome_contracts.operations.composition import composition
-from crome_contracts.operations.conjunction import conjunction
-from crome_contracts.operations.merging import merging
-from crome_contracts.operations.quotient import quotient
-from crome_contracts.operations.separation import separation
+from src.crome_contracts.contract import Contract
+from src.crome_contracts.operations.composition import composition
+from src.crome_contracts.operations.conjunction import conjunction
+from src.crome_contracts.operations.merging import merging
+from src.crome_contracts.operations.quotient import quotient
+from src.crome_contracts.operations.separation import separation
 
 
 def example() -> None:

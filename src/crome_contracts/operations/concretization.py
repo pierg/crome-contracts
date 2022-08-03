@@ -1,4 +1,4 @@
-from crome_contracts.contract import Contract
+from src.crome_contracts.contract import Contract
 
 
 def concretization(contracts: set[Contract]) -> set[Contract]:

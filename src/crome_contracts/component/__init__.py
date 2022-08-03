@@ -2,17 +2,17 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from crome_contracts.contract import Contract
-from crome_logic.typeset import Typeset
+from src.crome_contracts.contract import Contract
+from src.crome_logic.typeset import Typeset
 
 
 @dataclass(frozen=True)
 class Component:
     _name: str
-    _description: str = ""
     _inputs: Typeset
     _outputs: Typeset
     _contracts: set[Contract]
+    _description: str = ""
 
     @property
     def name(self) -> str:
