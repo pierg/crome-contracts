@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from src.crome_contracts.contract import Contract
+from crome_contracts.src.crome_contracts.contract import Contract
 
 
 @dataclass

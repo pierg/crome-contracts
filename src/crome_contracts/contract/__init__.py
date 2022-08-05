@@ -4,10 +4,10 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 from enum import Enum, auto
 
-from src.crome_logic.specification.temporal import LTL
-from src.crome_logic.typeset import Typeset
+from crome_logic.src.crome_logic.specification.temporal import LTL
+from crome_logic.src.crome_logic.typeset import Typeset
 
-from src.crome_contracts.contract.conflicts_manager import find_inconsistencies_operation
+from crome_contracts.src.crome_contracts.contract.conflicts_manager import find_inconsistencies_operation
 
 
 

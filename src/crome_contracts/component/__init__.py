@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from src.crome_contracts.contract import Contract
-from src.crome_logic.typeset import Typeset
+from crome_contracts.src.crome_contracts.contract import Contract
+from crome_logic.src.crome_logic.typeset import Typeset
 
 
 @dataclass(frozen=True)

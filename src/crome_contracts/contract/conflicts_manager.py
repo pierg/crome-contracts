@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.crome_contracts.contract import Contract
+    from crome_contracts.src.crome_contracts.contract import Contract
 
 
 def find_inconsistencies_operation(c: Contract):
