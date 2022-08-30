@@ -8,14 +8,14 @@ Documentation available [here](https://pierg.github.io/crome-contracts).
 
 ## Dependencies
 
-Pull all the submodules
+Pull all the submodules and update them to the latest commit
 
 ```bash
 git submodule init 
 ```
 
 ```bash
-git submodule update 
+git submodule update --remote --merge
 ```
 
 ## Installation
