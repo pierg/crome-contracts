@@ -1,4 +1,4 @@
-from crome_contracts.src.crome_contracts.contract import Contract
+from crome_contracts.contract import Contract
 
 
 def concretization(contracts: set[Contract]) -> set[Contract]:
@@ -6,5 +6,4 @@ def concretization(contracts: set[Contract]) -> set[Contract]:
         return contracts
     if len(contracts) == 0:
         raise Exception("No contract specified in the concretization")
-    #TODO: to implement
-    pass
+    # TODO: to implement

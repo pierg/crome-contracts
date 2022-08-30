@@ -1,17 +1,23 @@
 [project]
 name = "crome-contracts"
-description = "LTL and Boolean formulas manipulation"
-authors = [{name = "Piergiuseppe Mallozzi", email = "piergiuseppe.mallozzi@gmail.com"}]
-license-expression = "MIT"
-readme = "README.md"
-requires-python = ">=3.10"
-dynamic = ["version"]
-dependencies = [
-    "crome-logic @ file:///${PROJECT_ROOT}/crome_logic",
-    "editables>=0.3",
+version = ""
+description = "Contract algebra implementation in LTL"
+authors = [
+    {name = "Piergiuseppe Mallozzi", email = "piergiuseppe.mallozzi@gmail.com"},
 ]
+dependencies = [
+    "editables>=0.3",
+    "crome-logic @ file:///${PROJECT_ROOT}/crome_logic",
+]
+requires-python = ">=3.9,<3.11"
+license = {text = "MIT"}
 
-[project.optional-dependencies]
+[project.scripts]
+example = "crome_contracts.cli:main"
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
 
 [tool.pdm.dev-dependencies]
 duty = ["duty>=0.7"]
@@ -66,7 +72,5 @@ dev = [
     "pre-commit>=2.20.0",
 ]
 
-
-[build-system]
-requires = ["pdm-pep517"]
-build-backend = "pdm.pep517.api"
+[tool]
+[tool.pdm]

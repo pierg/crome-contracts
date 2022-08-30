@@ -1,6 +1,6 @@
 # crome-contracts
 
-Contract Algebra Implementation with behaviours expressed in LTL
+Contract algebra implementation in LTL
 
 [Contract for System Design](https://hal.inria.fr/hal-0o0757488/file/RR-8147.pdf)
 
@@ -8,10 +8,14 @@ Documentation available [here](https://pierg.github.io/crome-contracts).
 
 ## Dependencies
 
-Clone crome-contracts from git in the same folder where crome-web is located
+Pull all the submodules
 
 ```bash
-git clone https://github.com/pierg/crome-contracts.git
+git submodule init 
+```
+
+```bash
+git submodule update 
 ```
 
 ## Installation

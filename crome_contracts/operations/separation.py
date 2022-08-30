@@ -1,4 +1,4 @@
-from crome_contracts.src.crome_contracts.contract import Contract, ContractOperation
+from crome_contracts.contract import Contract, ContractOperation
 
 
 def separation(dividend: Contract, divisor: Contract) -> Contract:
