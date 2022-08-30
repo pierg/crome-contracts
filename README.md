@@ -1,6 +1,10 @@
 # crome-contracts
 
-Contract algebra implementation in LTL
+**LTL Contracts**
+
+Implementation of the contract algebra operations where behaviours are expressed in Linear Temporal Logic.
+
+
 
 [Contract for System Design](https://hal.inria.fr/hal-0o0757488/file/RR-8147.pdf)
 
